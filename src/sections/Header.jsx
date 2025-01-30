@@ -20,7 +20,12 @@ const Header = () => {
           <img src="/images/xora.svg" width={115} height={55} alt="logo" />
         </a>
 
-        <div className= {clsx ('w-full max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-s2 max-lg:opacity-0', isOpen ? 'max-lg:opacity-100' : 'max-lg:pointer-events-none')}>
+        <div
+          className={clsx(
+            "w-full max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-s2 max-lg:opacity-0",
+            isOpen ? "max-lg:opacity-100" : "max-lg:pointer-events-none"
+          )}
+        >
           <div className="max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:overflow-hidden max-lg:p-6 sidebar-before max-md:px-4">
             <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
               <ul className="flex max-lg:block max-lg:px-12">
@@ -31,7 +36,17 @@ const Header = () => {
                 </li>
 
                 <li className="nav-logo">
-                  <LinkScroll>
+                  <LinkScroll
+                    to="hero"
+                    offset={-100}
+                    smooth
+                    duration={500}
+                    spy
+                    className={clsx(
+                      "max-lg:hidden transition-transform duration-500 cursor-pointer",
+                      isOpen && "transform translate-x-0"
+                    )}
+                  >
                     <img
                       src="/images/xora.svg"
                       width={160}
@@ -47,6 +62,23 @@ const Header = () => {
                 </li>
               </ul>
             </nav>
+
+            <div className="lg:hidden block absolute top-1/2 left-0 w-[960px] h-[380px] transform translate-x-[-290px] rotate-90 -translate-y-1/2">
+              <img
+                src="/images/bg-outlines.svg"
+                width={960}
+                height={380}
+                className="relative z-2"
+                alt="outline"
+              />
+              <img
+                src="/images/bg-outlines-fill.png"
+                width={960}
+                height={380}
+                className="absolute inset-0 mix-blend-soft-light opacity-5"
+                alt="outline"
+              />
+            </div>
           </div>
         </div>
 
