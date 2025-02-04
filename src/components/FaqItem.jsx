@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { SlideDown } from "react-slidedown";
 import "react-slidedown/lib/slidedown.css";
 
@@ -56,5 +57,14 @@ const FaqItem = ({ item, index }) => {
     </div>
   );
 };
+FaqItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    question: PropTypes.string.isRequired,
+    answer: PropTypes.string.isRequired,
+  }).isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 export default FaqItem;
+
