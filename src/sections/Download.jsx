@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Element } from "react-scroll";
 import { links, logos } from "../components/constants";
 import Marker from "../components/Marker";
